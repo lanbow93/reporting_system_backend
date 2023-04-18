@@ -1,0 +1,34 @@
+{
+  "name": "reporting_system_backend",
+  "version": "1.0.0",
+  "description": "A website for generating reports and running statistical analyses on data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanbow93/reporting_system_backend.git"
+  },
+  "keywords": [
+    "reporting",
+    "statistics",
+    "data",
+    "analysis",
+    "visualization",
+    "web",
+    "application",
+    "Node.js",
+    "Express",
+    "MongoDB"
+  ],
+  "author": "Brianne C. & Lance B. & Nathan S.",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/lanbow93/reporting_system_backend/issues"
+  },
+  "homepage": "https://github.com/lanbow93/reporting_system_backend#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
