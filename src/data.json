@@ -1,0 +1,49 @@
+{
+    "users": [
+        {
+          "name": "Chris Fritz",
+          "email": "chrisvfritz@gmail.com",
+          "username": "chrisvfritz",
+          "groups": [
+            "38St7Q8Zi2N1SPa5ahzssq9kbyp1",
+            "7uVPJS9GHoftN58Z2MXCYDqmNAh2",
+            "ALXhxjwgY9PinwNGHpfai6OWyDu2"
+          ],
+          "image": "https://avatars3.githubusercontent.com/u/2327556?v=4&s=460",          
+          "createdDate": 1594632260,
+          "lastActive": 1594772078,
+          "isAdmin": true,
+          "id": "-KpOx5Y4AqRr3sB4Ybwj"
+        },
+        { needs more user instances }
+
+
+    "groups": [
+      {
+        "name": "Developers",
+        "description": "folks who build code things",
+        "members": [
+          "-KpOx5Y4AqRr3sB4Ybwj",
+          "-KsjO4_W3W9Q2Z2UmuPr"
+        ],
+        "owners": [
+            "-KpOx5Y4AqRr3sB4Ybwj"
+          ],
+        "id": "-KpR7vRkiRPpbUd_TVAR",
+        "createdDate": 1594632260,
+        "userAddedDates": [
+            9872349872,
+            2387843873
+        ],
+        isActive: true
+      },
+      { needs more group instances }
+    ]
+
+    "stats": {
+      "usersCount": 1,
+      "groupsCount": 5,
+      "usersOnline": 0,
+      "activeGroups": 2
+    }
+  }
