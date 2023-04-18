@@ -4,7 +4,11 @@
   "description": "A website for generating reports and running statistical analyses on data",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init": "tsc --init",
+    "compile": "tsc",
+    "start": "node dist/server.js",
+    "tsdev": "tsc --watch",
+    "dev": "nodemon dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +33,21 @@
   },
   "homepage": "https://github.com/lanbow93/reporting_system_backend#readme",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/morgan": "^1.9.4",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.4",
+    "morgan": "^1.10.0"
   }
 }
