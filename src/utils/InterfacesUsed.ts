@@ -1,0 +1,1 @@
+// Area to make types and interfaces needed on other files
