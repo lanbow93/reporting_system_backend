@@ -1,5 +1,6 @@
 // Import Dependencies
 import { Application, Request, Response } from "express"
+import authRouter from "./controllers/auth"
 const express = require("express")
 const morgan = require("morgan")
 const cors = require("cors")
@@ -19,6 +20,11 @@ app.use(cors({
 app.use(express.json()) // Ability to parse and understand json data
 app.use(cookieParser()) // Ability to send and receive cookies
 
+
+// Routers
+app.use("/auth", authRouter)
+
+
 // Routes
 app.get("/", (request: Request, response: Response) => {
     response.send("Server is operational")
@@ -26,7 +32,7 @@ app.get("/", (request: Request, response: Response) => {
 
 
 // Listener
-const PORT: String = process.env.PORT || "4321"
+const PORT: String = process.env.PORT ?? "4321"
 app.listen(PORT, ()=> {
     console.log(`Listening on port: ${PORT}`)
 })
