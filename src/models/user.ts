@@ -1,6 +1,6 @@
 import mongoose from "../db/connection";
 import { IUser } from "../utils/InterfacesUsed";
-const Joi = require('Joi')
+const Joi = require('joi')
 
 const {Schema, model} = mongoose
 
@@ -9,7 +9,7 @@ const userSchema = new Schema<IUser>({
     email: {type: String, required: true, unique: true},
     username: {type: String, required: true, unique: true},
     password: {type: String, required: true}
-})
+}, {timestamps: true})
 
 const userValidationSchema = Joi.object({
     name: Joi.string().required(),
@@ -18,10 +18,9 @@ const userValidationSchema = Joi.object({
     password: Joi.string().required()
 })
 
-const validateUser = (user: IUser) => {
+export const validateUser = (user: IUser) => {
     return userValidationSchema.validate(user)
 }
 
-const User = model<IUser>('User', userSchema);
+export const User = model<IUser>('User', userSchema);
 
-export default {User, validateUser}
