@@ -1,12 +1,17 @@
 import { Request, Response, Router } from "express"
 import {validateUser, User} from "../models/user"
-import { IUser } from "../utils/InterfacesUsed"
+import {  IUser } from "../utils/InterfacesUsed"
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
+
 require("dotenv").config()
+
+const SECRET: string = process.env.SECRET ?? ""
 
 // const SECRET: string = process.env.SECRET ?? ""
 
 const router: Router = Router()
+
 
 // Admin signup post
 router.post("/signup", async (request: Request, response: Response) => {
@@ -33,5 +38,34 @@ router.post("/signup", async (request: Request, response: Response) => {
     }
 })
 
+router.post("/login", async (request: Request, response: Response) => {
+    try {
+        const username: string = request.body.username
+        const password: string = request.body.password
 
+        // Check to see if username exists in the database
+        const user: IUser | null = await User.findOne({username})
+        // Check to see if user exists
+        if (user){
+            // Compare the password to 
+            const passwordCheck: Boolean = await bcrypt.compare(password, user.password)
+            if(passwordCheck) {
+                // Create payload with username object
+                const payload = {username}
+                const userToken = await jwt.sign(payload, SECRET)
+                response.cookie("userToken", userToken, {
+                    httpOnly: true, // Prevents user from changing or manupilating cookie
+                    path: "/", // Assigns the cookie location
+                    sameSite: "none", // Allows cookie request from different server
+                    secure: request.hostname === "locahhost" ? false : true,}).json({payload, status: "logged in"}) // Needed for local host dev to get cookies
+            } else {
+                response.status(400).json({error: "Password does not match"})
+            }
+        } else {
+            response.status(400).json({error: "User does not exist"})
+        }
+    } catch(error) {
+        response.status(400).json(error)
+    }
+})
 export default router

@@ -1,11 +1,8 @@
-import {NextFunction, Request, Response} from "express";
-import jwt from "jsonwebtoken";
+import {NextFunction, Response} from "express";
 import { IVerifyRequest } from "./InterfacesUsed";
+import jwt from "jsonwebtoken";
 require("dotenv").config()
-
 const SECRET: string = process.env.SECRET ?? ""
-
-
 
 async function userLoggedIn (request: IVerifyRequest, response: Response, next: NextFunction){
     try {
@@ -24,7 +21,5 @@ async function userLoggedIn (request: IVerifyRequest, response: Response, next: 
     } catch (error) {
         response.status(400).json({error})
     }
-
 }
-
 export default userLoggedIn

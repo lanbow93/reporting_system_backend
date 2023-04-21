@@ -17,3 +17,8 @@ export interface IVerifyRequest extends Request {
     userToken: string,
     payload: JwtPayload | string
 }
+
+export interface ILoginRequest extends Request {
+    username: string,
+    password: string
+}
