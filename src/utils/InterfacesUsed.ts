@@ -1,5 +1,8 @@
 // Area to make types and interfaces needed on other files
 
+import { Request } from "express";
+import { JwtPayload } from "jsonwebtoken";
+
 export interface IUser {
     name: string,
     email: string,
@@ -8,4 +11,9 @@ export interface IUser {
     id?: string,
     createdAt?: Date;
     updatedAt?: Date;
+}
+
+export interface IVerifyRequest extends Request {
+    userToken: string,
+    payload: JwtPayload | string
 }
