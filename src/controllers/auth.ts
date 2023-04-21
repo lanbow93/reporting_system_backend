@@ -47,12 +47,12 @@ router.post("/login", async (request: Request, response: Response) => {
         const user: IUser | null = await User.findOne({username})
         // Check to see if user exists
         if (user){
-            // Compare the password to 
+            // Compare the password to stored password to see if they are the same
             const passwordCheck: Boolean = await bcrypt.compare(password, user.password)
             if(passwordCheck) {
                 // Create payload with username object
                 const payload = {username}
-                const userToken = await jwt.sign(payload, SECRET)
+                const userToken = await jwt.sign(payload, SECRET)  // Encrypts the username on the token with the secret
                 response.cookie("userToken", userToken, {
                     httpOnly: true, // Prevents user from changing or manupilating cookie
                     path: "/", // Assigns the cookie location
@@ -68,4 +68,10 @@ router.post("/login", async (request: Request, response: Response) => {
         response.status(400).json(error)
     }
 })
+
+router.post("'logout", async (request: Request, response: Response) => {
+    // Below removes cookie
+    response.clearCookie("userToken").json({response: "You are logged out"})
+})
+
 export default router

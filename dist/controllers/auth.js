@@ -58,5 +58,8 @@ router.post("/login", async (request, response) => {
         response.status(400).json(error);
     }
 });
+router.post("'logout", async (request, response) => {
+    response.clearCookie("userToken").json({ response: "You are logged out" });
+});
 exports.default = router;
 //# sourceMappingURL=auth.js.map
