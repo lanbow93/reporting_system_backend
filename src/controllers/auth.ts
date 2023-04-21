@@ -69,7 +69,7 @@ router.post("/login", async (request: Request, response: Response) => {
     }
 })
 
-router.post("'logout", async (request: Request, response: Response) => {
+router.post("/logout", async (request: Request, response: Response) => {
     // Below removes cookie
     response.clearCookie("userToken").json({response: "You are logged out"})
 })
