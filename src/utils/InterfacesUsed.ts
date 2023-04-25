@@ -1,7 +1,7 @@
 // Area to make types and interfaces needed on other files
 
-import { Request } from "express";
-import { JwtPayload } from "jsonwebtoken";
+import { Request } from "express"; // Needed to import the Request Typescript inferface to build off of for authentication
+import { JwtPayload } from "jsonwebtoken"; // To be able to implement a type that includes token
 
 export interface IUser {
     name: string,

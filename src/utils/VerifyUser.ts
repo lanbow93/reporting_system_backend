@@ -2,8 +2,7 @@ import {NextFunction, Response} from "express";
 import { IVerifyRequest } from "./InterfacesUsed";
 import jwt from "jsonwebtoken";
 require("dotenv").config()
-const SECRET: string = process.env.SECRET ?? ""
-
+const SECRET: string = process.env.SECRET ?? "" //If unable to find secret set to empty string
 async function userLoggedIn (request: IVerifyRequest, response: Response, next: NextFunction){
     try {
         // Check to see if token was sent
